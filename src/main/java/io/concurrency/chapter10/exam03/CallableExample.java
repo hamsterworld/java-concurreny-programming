@@ -10,7 +10,6 @@ public class CallableExample {
         Callable<Integer> callableTask = ()->{
             System.out.println("Callable 작업 수행중..");
             System.out.println("Callable 작업 완료");
-
             return 42;
         };
 
@@ -18,7 +17,6 @@ public class CallableExample {
         int result;
         try {
             result = future.get();
-
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         } catch (ExecutionException e) {
