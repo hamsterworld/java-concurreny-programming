@@ -24,19 +24,20 @@ public class FutureIsDoneExample {
         // 작업을 제출 하고 Future 객체를 받음
         Future<Integer> future = executorService.submit(callableTask);
 
-        while (!future.isDone()) {
-            System.out.println("Waiting for the result...");
-            Thread.sleep(500);
-        }
+//        while (!future.isDone()) {
+//            System.out.println("Waiting for the result...");
+//            Thread.sleep(500);
+//        }
 
         // 작업 취소 시도, 결과가 완료된 경우는 효과가 없다
-        boolean cancel = future.cancel(true);
+        future.cancel(true);
 
         try {
+//            System.out.println(future.isCancelled());
             Integer result = future.get();
             System.out.println("Result: " + result);
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
         executorService.shutdown();
     }

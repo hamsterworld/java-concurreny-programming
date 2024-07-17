@@ -8,13 +8,14 @@ public class FutureCancelExample {
 
         // Callable 작업 생성
         Callable<Integer> callableTask = () -> {
-            System.out.println("비동기 작업 시작...");
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            System.out.println("비동기 작업 완료.");
+            System.out.println("start async..");
+            Thread.sleep(1000);
+//            try {
+//                Thread.sleep(1000);
+//            } catch (InterruptedException e) {
+//                e.printStackTrace();
+//            }
+            System.out.println("finish async.");
             return 42;
         };
 
@@ -26,9 +27,12 @@ public class FutureCancelExample {
             Thread.sleep(500);
         }*/
 
+        Thread.sleep(999);
         // 작업 취소 시도, 결과가 완료된 경우는 효과가 없다
-        boolean cancel = future.cancel(true);
+        future.cancel(false);
 
+
+        System.out.println(future.isCancelled());
 //        if (!future.isCancelled()) {
             try {
                 Integer result = future.get();

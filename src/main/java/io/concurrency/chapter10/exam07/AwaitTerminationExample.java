@@ -18,7 +18,7 @@ public class AwaitTerminationExample {
 
         executorService.submit(()->{
             while(true){
-                System.out.println(Thread.currentThread().getName() + " : 데몬 스레드 실행 중...");
+                System.out.println(Thread.currentThread().getName() + " : daemon thread is running...");
                 Thread.sleep(1000);
             }
         });
@@ -27,7 +27,7 @@ public class AwaitTerminationExample {
 
 //        executorService.awaitTermination(Long.MAX_VALUE, TimeUnit.NANOSECONDS);
         Thread.sleep(3000);
-        System.out.println("메인 스레드 종료");
+        System.out.println("Main Thread completed");
 
     }
 }
