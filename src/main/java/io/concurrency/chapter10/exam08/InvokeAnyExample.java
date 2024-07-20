@@ -14,7 +14,8 @@ public class InvokeAnyExample {
 
         tasks.add(() -> {
             Thread.sleep(2000);
-            return "Task 1";
+            throw new RuntimeException("error");
+//            return "Task 1";
         });
         tasks.add(() -> {
             Thread.sleep(1000);
@@ -22,7 +23,8 @@ public class InvokeAnyExample {
         });
         tasks.add(() -> {
             Thread.sleep(3000);
-            return "Task 3";
+            throw new RuntimeException("error");
+//            return "Task 3";
         });
         long started = 0;
         try {
@@ -36,6 +38,6 @@ public class InvokeAnyExample {
             executor.shutdown();
         }
 
-        System.out.println("총 소요시간:"  + (System.currentTimeMillis() - started ));
+        System.out.println("total runningTime: " + (System.currentTimeMillis() - started ));
     }
 }

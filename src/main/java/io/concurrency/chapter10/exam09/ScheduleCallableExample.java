@@ -7,9 +7,7 @@ public class ScheduleCallableExample {
 
         ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
 
-        Callable<String> task = () -> {
-            return "작업이 한번 실행 되고 결과를 반환 합니다.";
-        };
+        Callable<String> task = () -> "작업이 한번 실행 되고 결과를 반환 합니다.";
 
         ScheduledFuture<String> future = scheduler.schedule(task, 3, TimeUnit.SECONDS);
 

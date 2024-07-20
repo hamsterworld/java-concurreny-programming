@@ -1,12 +1,10 @@
 package io.concurrency.chapter10.exam09;
 
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.ScheduledFuture;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.*;
 
 public class ScheduleAtFixedRateExample {
     public static void main(String[] args) {
+
         ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(3);
         Runnable task = () -> {
             try {
@@ -30,5 +28,11 @@ public class ScheduleAtFixedRateExample {
 
         future.cancel(true); // 작업을 취소하면 인터럽트 되어 스케줄링이 중지된다
         scheduler.shutdown();
+
+        ExecutorService executorService = Executors.newFixedThreadPool(1);
+        System.out.println(executorService.getClass());
+        ExecutorService executorService1 = Executors.newSingleThreadExecutor();
+
+
     }
 }
