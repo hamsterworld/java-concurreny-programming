@@ -14,6 +14,7 @@ public class SupplyAsyncExample {
             return service.getData();
         });
 
+        System.out.println(cf.getClass());
         List<Integer> result = cf.join();
         result.stream().forEach(r->System.out.println(r));
 
@@ -24,6 +25,9 @@ public class SupplyAsyncExample {
             System.out.println(Thread.currentThread().getName() + " 가 비동기 작업을 시작합니다");
             return service.getData();
         });
+
+
+        System.out.println(future.getClass());
 
         try {
             List<Integer> result2 = future.get();
