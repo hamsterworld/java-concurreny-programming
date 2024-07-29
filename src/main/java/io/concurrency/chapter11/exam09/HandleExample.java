@@ -1,5 +1,7 @@
 package io.concurrency.chapter11.exam09;
 
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.concurrent.CompletableFuture;
 
 public class HandleExample {
@@ -20,7 +22,6 @@ public class HandleExample {
 
                     return r;
                 });
-
         CompletableFuture<Integer> cf2 = CompletableFuture.supplyAsync(() -> {
                     try {
                         Thread.sleep(500);
@@ -29,6 +30,7 @@ public class HandleExample {
                     } catch (InterruptedException e) {
                         Thread.currentThread().interrupt();
                     }
+
                     return 20;
                 }).handle((r, e) ->{
                     if(e !=null){
