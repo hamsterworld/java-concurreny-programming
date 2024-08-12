@@ -7,7 +7,7 @@ public class CountingSemaphoreExample {
         CountingSemaphore semaphore = new CountingSemaphore(permits);
         SharedResource resource = new SharedResource(semaphore);
 
-        int threadCount = 10; // 전체 스레드 개수
+        int threadCount = 6; // 전체 스레드 개수
 
         Thread[] threads = new Thread[threadCount];
         for (int i = 0; i < threadCount; i++) {
